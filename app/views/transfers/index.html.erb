@@ -1,0 +1,42 @@
+<% if user_signed_in? %>
+
+  <h1>Transfer List</h1>
+
+  <br>
+
+  <table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Name</th>
+        <th>Club from</th>
+        <th>Club to</th>
+        <th>Transfer fee</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @transfers.each do |transfer| %>
+        <% if transfer.user == current_user %>
+          <tr>
+            <td><%= link_to transfer.first_name + ' ' + transfer.last_name, transfer %></td>
+            <td><%= transfer.club_from %></td>
+            <td><%= transfer.club_to %></td>
+            <td><%= transfer.transfer_fee %></td>
+            <td><%= button_to 'Delete', transfer, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class:"btn btn-outline-danger btn-sm" %></td>
+          </tr>
+        <% end %>
+      <% end  %>
+    </tbody>
+  </table>
+
+  <%= link_to "New transfer", new_transfer_path, class:"btn btn-dark" %>
+
+
+<% else %>
+
+  <h1>Football Transfers</h1>
+  <%= image_tag("football.jpg", width:"320px") %>
+
+<% end %>
+

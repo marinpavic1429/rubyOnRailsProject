@@ -1,0 +1,43 @@
+<%= form_with(model: transfer) do |form| %>
+  <% if transfer.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(transfer.errors.count, "error") %> prohibited this transfer from being saved:</h2>
+
+      <ul>
+        <% transfer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.text_field :first_name, class:"form-control", placeholder:"First name" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_field :last_name, class:"form-control", placeholder:"Last name" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_field :club_from, class:"form-control", placeholder:"Club from" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_field :club_to, class:"form-control", placeholder:"Club to" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.text_field :transfer_fee, class:"form-control", placeholder:"Transfer fee" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.number_field :user_id, id: :transfer_user_id, class:"form-control", value:current_user.id, type: :hidden %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.submit class:'btn btn-dark' %>
+  </div>
+<% end %>

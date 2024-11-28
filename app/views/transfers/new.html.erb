@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-header">
+    <h2>Add transfer</h2>
+  </div>
+  <div class="card-body">
+    <%= render "form", transfer: @transfer %>
+  </div>
+</div>
+
+<br>
+
+<div>
+  <%= link_to "Back to transfer list", transfers_path, class:'btn btn-dark' %>
+</div>

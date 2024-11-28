@@ -1,0 +1,16 @@
+<div class="jumbotron">
+  <h1 class="display-4">
+    <%= @transfer.first_name %>
+    <%= @transfer.last_name %>
+  </h1>
+  <p class="lead">
+    From: <%= @transfer.club_from %>
+    <br>  
+    To: <%= @transfer.club_to %> 
+    <br>  
+    Price: <%= @transfer.transfer_fee %>   
+  </p>
+  <hr class="my-4">
+  <%= link_to "Edit transfer", edit_transfer_path(@transfer), class:"btn btn-outline-dark btn-sm" %> 
+  <%= link_to "Back to transfer list", transfers_path, class:"btn btn-outline-dark btn-sm" %>
+</div>

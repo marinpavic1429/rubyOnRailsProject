@@ -1,0 +1,14 @@
+<h1>Editing transfer</h1>
+
+<br>
+
+<%= render "form", transfer: @transfer %>
+
+<br>
+
+<div>
+  <%= link_to "Back to transfer list", transfers_path, class:'btn btn-dark' %>
+  <br>
+  <br>
+  <%= button_to 'Delete', @transfer, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class:"btn btn-danger" %>
+</div>
